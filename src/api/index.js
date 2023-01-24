@@ -14,12 +14,22 @@ export const fetchPost = async (id) => {
     return data;
 };
 
+export const deletePost = async (id) => {
+    const { data } = await api.delete(`/posts/${id}`);
+    return data;
+};
+
+export const editPost = async (id, post) => {
+    const { data } = await api.put(`/posts/${id}`, post);
+    return data;
+};
+
 export const fetchUser = async (id) => {
     const { data } = await api.get(`/users/${id}`);
     return data;
 };
 
-export const newPost = async () => {
-    const { data } = await api.post(`/posts`);
+export const newPost = async (post) => {
+    const { data } = await api.post(`/posts`, post);
     return data;
 };
